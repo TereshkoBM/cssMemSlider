@@ -12,11 +12,11 @@
 .slider__wrapper {
   margin: auto;
   position: relative;
-  height: calc(100% - 60px);;
+  height: calc(100% - 60px);
   width: 90vw;
 }
 
-.slider__items {
+.slider__images {
   overflow: hidden;
   position: relative;
   height: inherit;
@@ -37,23 +37,23 @@
   transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s;
 }
 
-.slider__item_1 {  
-  background-image: url(../cssMemSlider/assets/images/1.png);  
+.slider__img_1 {
+  background-image: url(../cssMemSlider/assets/images/1.png);
 }
-.slider__item_2 {
-  background-image: url(../cssMemSlider/assets/images/2.png);  
+.slider__img_2 {
+  background-image: url(../cssMemSlider/assets/images/2.png);
 }
-.slider__item_3 {
+.slider__img_3 {
   background-image: url(../cssMemSlider/assets/images/3.png);
 }
-.slider__item_4 {
+.slider__img_4 {
   background-image: url(../cssMemSlider/assets/images/4.png);
 }
 
-#slide_1:checked ~ .slider__items > .slider__item_1,
-#slide_2:checked ~ .slider__items > .slider__item_2,
-#slide_3:checked ~ .slider__items > .slider__item_3,
-#slide_4:checked ~ .slider__items > .slider__item_4 {
+#slide_1:checked ~ .slider__images > .slider__img_1,
+#slide_2:checked ~ .slider__images > .slider__img_2,
+#slide_3:checked ~ .slider__images > .slider__img_3,
+#slide_4:checked ~ .slider__images > .slider__img_4 {
   opacity: 1;
   z-index: 1;
   transform: scale(1);
@@ -64,7 +64,7 @@
 }
 
 .slider__wrapper .controls {
-  right: 10vw;  
+  right: 10vw;
   position: absolute;
 }
 
@@ -78,22 +78,26 @@
   border-radius: 50%;
 }
 
-.slider__wrapper label:hover,
+.slider__wrapper label:hover{
+  background:coral;
+}
 #slide_1:checked ~ .controls label:nth-of-type(1),
 #slide_2:checked ~ .controls label:nth-of-type(2),
 #slide_3:checked ~ .controls label:nth-of-type(3),
 #slide_4:checked ~ .controls label:nth-of-type(4) {
-  background: red;
+  background:brown;
 }
 
 .slider__wrapper label:after {
   border: 2px solid red;
   content: " ";
   display: block;
-  height: 12px;
-  left: -4px;
   position: absolute;
+  left: -4px;  
   top: -4px;
+  height: 12px;
   width: 12px;
   border-radius: 50%;
 }
+
+
