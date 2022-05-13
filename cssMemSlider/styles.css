@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.slider__wrapper {
+  margin: auto;
+  position: relative;
+  height: calc(100% - 60px);;
+  width: 90vw;
+}
+
+.slider__items {
+  overflow: hidden;
+  position: relative;
+  height: inherit;
+  width: inherit;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.slides {
+  height: inherit;
+  opacity: 0;
+  position: absolute;
+  width: inherit;
+  z-index: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scale(1.5);
+  transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s;
+}
+
+.slider__item_1 {  
+  background-image: url(../cssMemSlider/assets/images/1.png);  
+}
+.slider__item_2 {
+  background-image: url(../cssMemSlider/assets/images/2.png);  
+}
+.slider__item_3 {
+  background-image: url(../cssMemSlider/assets/images/3.png);
+}
+.slider__item_4 {
+  background-image: url(../cssMemSlider/assets/images/4.png);
+}
+
+#slide_1:checked ~ .slider__items > .slider__item_1,
+#slide_2:checked ~ .slider__items > .slider__item_2,
+#slide_3:checked ~ .slider__items > .slider__item_3,
+#slide_4:checked ~ .slider__items > .slider__item_4 {
+  opacity: 1;
+  z-index: 1;
+  transform: scale(1);
+}
+
+.slider__wrapper > input {
+  display: none;
+}
+
+.slider__wrapper .controls {
+  right: 10vw;  
+  position: absolute;
+}
+
+.slider__wrapper label {
+  cursor: pointer;
+  display: inline-block;
+  margin: 25px;
+  position: relative;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+}
+
+.slider__wrapper label:hover,
+#slide_1:checked ~ .controls label:nth-of-type(1),
+#slide_2:checked ~ .controls label:nth-of-type(2),
+#slide_3:checked ~ .controls label:nth-of-type(3),
+#slide_4:checked ~ .controls label:nth-of-type(4) {
+  background: red;
+}
+
+.slider__wrapper label:after {
+  border: 2px solid red;
+  content: " ";
+  display: block;
+  height: 12px;
+  left: -4px;
+  position: absolute;
+  top: -4px;
+  width: 12px;
+  border-radius: 50%;
+}
