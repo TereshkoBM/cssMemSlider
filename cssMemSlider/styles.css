@@ -1,0 +1,306 @@
+ :root {
+   --font-size-caption: 100%;
+   --hight-control-caption: 58px;
+   --width-caption: 196px;
+   --width-caption-shift: 200px;
+ }
+
+ * {
+   box-sizing: border-box;
+ }
+
+ body {
+   margin: 0;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background-image: url(../cssMemSlider/assets/images/hearts.jpg);
+ }
+
+ .container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   height: 100vh;
+   margin: 0 auto;
+   max-width: 1024px;
+ }
+
+ .slider__wrapper {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+   position: relative;
+   height: calc(100% - 80px);
+   width: 90vw;
+   border-radius: 10px;
+   background-color: pink;
+   overflow-y: auto;
+   min-height: 560px;
+ }
+
+ .slider__images {
+   overflow: hidden;
+   position: relative;
+   height: inherit;
+   width: inherit;
+   border-radius: 10px;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+ }
+
+ .slides {
+   height: 100%;
+   opacity: 0;
+   position: absolute;
+   width: 100%;
+   z-index: 0;
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
+   transform: scale(1.5);
+   transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s;
+ }
+
+ .slider__img_1 {
+   background-image: url(../cssMemSlider/assets/images/1.png);
+ }
+
+ .slider__img_2 {
+   background-image: url(../cssMemSlider/assets/images/2.png);
+ }
+
+ .slider__img_3 {
+   background-image: url(../cssMemSlider/assets/images/3.png);
+ }
+
+ .slider__img_4 {
+   background-image: url(../cssMemSlider/assets/images/4.png);
+ }
+
+ #slide_1:checked~.slider__images>.slider__img_1,
+ #slide_2:checked~.slider__images>.slider__img_2,
+ #slide_3:checked~.slider__images>.slider__img_3,
+ #slide_4:checked~.slider__images>.slider__img_4 {
+   opacity: 1;
+   z-index: 1;
+   transform: scale(1);
+ }
+
+ #slide_1:checked~.controls label:nth-of-type(1),
+ #slide_2:checked~.controls label:nth-of-type(2),
+ #slide_3:checked~.controls label:nth-of-type(3),
+ #slide_4:checked~.controls label:nth-of-type(4) {
+   background: brown;
+ }
+
+ .slider__wrapper>input {
+   display: none;
+ }
+
+ .slider__wrapper .controls {
+   display: flex;
+   margin: 5px;
+   background-color: bisque;
+   border-radius: 10px;
+ }
+
+ .slider__wrapper label {
+   cursor: pointer;
+   display: inline-block;
+   margin: calc(var(--hight-control-caption)/2);
+   position: relative;
+   height: 8px;
+   width: 8px;
+   border-radius: 50%;
+ }
+
+ .slider__wrapper label:hover {
+   background: coral;
+ }
+
+ .slider__wrapper label:hover::before {
+   cursor: pointer;
+   content: '';
+   position: absolute;
+   display: block;
+   top: calc(var(--hight-control-caption)/(-2));
+   left: calc(var(--hight-control-caption)/(-2));
+   right: calc(var(--hight-control-caption)/(-2));
+   bottom: calc(var(--hight-control-caption)/(-2));
+ }
+
+ .slider__wrapper label:after {
+   border: 2px solid red;
+   content: " ";
+   display: block;
+   position: absolute;
+   left: -4px;
+   top: -4px;
+   height: 12px;
+   width: 12px;
+   border-radius: 50%;
+ }
+
+ .slider__wrapper label:active {
+   top: -10px;
+   transition: all 1s ease-in-out;
+ }
+
+ /* -------- Caption -------- */
+ a {
+   text-decoration: none;
+   color: #111b47;
+ }
+
+ a:hover {
+   border-bottom: 1px dashed #ED971F;
+   color: #ED971F;
+ }
+
+ /**** slider captions ****/
+
+ #slider__captions,
+ ul {
+   margin: 0;
+   padding: 0;
+   height: var(--hight-control-caption);
+
+   vertical-align: middle;
+ }
+
+ #slider__captions {
+   overflow: hidden;
+   border: 1px solid rgba(0, 0, 0, 0.15);
+   margin: 5px;
+   border-radius: 10px;
+   box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.25);
+   position: relative;
+   width: var(--width-caption-shift);
+ }
+
+ #slider__captions li {
+   margin: 0 auto;
+   padding: 0;
+   position: relative;
+   width: var(--width-caption);
+   display: inline-block;
+   transition: left 0.5s linear;
+ }
+
+ #slider__captions ul {
+   list-style: none;
+   position: absolute;
+   left: 0px;
+   top: 0px;
+   width: 9000px;
+   background-color: yellow;
+ }
+
+ /*** Content ***/
+
+ .container__caption {
+   margin: 0 auto;
+   padding-left: 5px;
+   display: flex;
+   align-items: center;
+   width: var(--width-caption-shift);
+   height: var(--hight-control-caption);
+   border-bottom: 1px solid #ccc;
+ }
+
+ .container__caption h2 {
+   margin: 0;
+   padding: 0;
+   font-size: var(--font-size-caption);
+   color: #0A7FAD;
+   text-shadow: -1px 0px 0px rgba(0, 0, 0, 0.50);
+ }
+
+ #slide_1:checked~#slider__captions li {
+   left: 0px;
+   opacity: 1;
+ }
+
+ #slide_2:checked~#slider__captions li {
+   left: calc((var(--width-caption-shift))*(-1));
+   opacity: 1;
+ }
+
+ #slide_3:checked~#slider__captions li {
+   left: calc(var(--width-caption-shift)*(-2));
+   opacity: 1;
+ }
+
+ #slide_4:checked~#slider__captions li {
+   left: calc(var(--width-caption-shift)*(-3));
+   opacity: 1;
+ }
+
+ @media (max-width: 768px) {
+   :root {
+     --font-size-caption: 70%;
+     --hight-control-caption: 40px;
+     --width-caption: 136px;
+     --width-caption-shift: 140px
+   }
+
+   .container {
+     height: 100%;
+     margin: 10px auto
+   }
+
+   .slider__wrapper {
+     flex-direction: column;
+     height: 95vh;
+     width: 95vw;
+     overflow-y: auto;
+     min-height: 560px;
+   }
+
+   .slider__images {
+     max-width: 768px;
+     flex-direction: column;
+     height: calc(100% - 130px);
+   }
+
+   #slider__captions {
+     order: 2;
+     align-self: flex-start;
+   }
+ }
+
+ @media (max-width: 320px),
+ (max-hight: 568) {
+
+  :root {
+    --font-size-caption: 50%;
+    --hight-control-caption: 30px;
+    --width-caption: 98px;
+    --width-caption-shift: 100px
+  }
+
+   .slider__wrapper {
+     flex-direction: column;
+
+     overflow-y: auto;
+     min-height: 500px;
+   }
+
+   .slider__images {
+     margin: 0 auto;
+     max-width: 320px;
+     flex-direction: column;
+   }
+
+   .controls {
+     align-self: center;
+   }
+
+   #slider__captions {
+     order: 2;
+   }
+ }
